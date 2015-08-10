@@ -1,5 +1,5 @@
 // On server startup, create some players if the database is empty.
-Meteor.startup(function() {
+Meteor.startup(() => {
     if (!Players.find().count()) {
         var names = [
             'Ada Lovelace',
@@ -9,13 +9,8 @@ Meteor.startup(function() {
             'Nikola Tesla',
             'Claude Shannon'
         ];
-        names.forEach(function(name)  {
-            Players.insert({name: name, score: Math.floor(Random.fraction() * 10) * 5});
-        });
+        names.forEach((name) => Players.insert({name: name, score: Math.floor(Random.fraction() * 10) * 5}));
     }
 });
 
-
-Meteor.publish('players', function() {
-    return Players.find();
-});
+Meteor.publish('players', () => Players.find());

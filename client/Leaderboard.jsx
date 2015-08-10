@@ -1,6 +1,6 @@
-Meteor.startup(function(){
-    React.render(<Leaderboard/>, document.getElementById('outer'));
-});
+Meteor.startup(
+    () => React.render(<Leaderboard/>, document.getElementById('outer'))
+);
 
 Meteor.subscribe("players");
 
